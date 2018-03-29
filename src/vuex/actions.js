@@ -78,7 +78,8 @@ const actions = {
     state
   }, opt) => {
     state.noLogin = false;
-    commit('loginOk')
+    commit('loginOk');
+    Toast("恭喜您登录成功！");
   },
 };
 

@@ -1,6 +1,7 @@
 <template>
   <!-- 设置密码弹窗 -->
-    <div class="setPwdModal" v-show="setPwdModal">
+    <transition  enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+    <div class="setPwdModal animated" v-show="setPwdModal">
       <span class="close qqzb_icon-guanbi" @click="closeSetPwdModal"></span>
       <div class="title cl">
           <span class="fl"></span>
@@ -15,6 +16,7 @@
         <p class="sure" @click="setPwdOk">确定</p>
       </div>
     </div>
+    </transition>
 </template>
 
 <script>

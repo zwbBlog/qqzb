@@ -14,7 +14,7 @@ export default {
 .header{
   height: 100%;  
   position: relative;
-  font-size: 17px;
+  font-size: 0.36rem;
   font-weight: bold;
 }
 .header_title{

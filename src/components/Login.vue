@@ -1,6 +1,7 @@
 <template>
-  <!-- 登录弹窗 -->
-    <div class="loginModal" v-show="loginModal">
+    <!-- 登录弹窗 -->
+     <transition  enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+    <div class="loginModal animated" v-show="loginModal">
         <span class="close qqzb_icon-guanbi" @click="closeModal"></span>
         <ul class="modal_list cl">
           <li class="fl" :style="{color:phoneLogin?'orange':'black'}" @click="usePhone">手机快捷登录</li>
@@ -27,6 +28,7 @@
             </div>
         </div>
     </div>
+    </transition>
 </template>
 
 <script>
@@ -56,12 +58,15 @@ export default {
       this.phoneLogin = false;
     },
     usePhoneLogin() {
-      if ("xx") {
+      if (false) {
         //未成功登录
         Toast("验证码错误，请重新输入！");
       } else {
         //登录成功
         this.$store.dispatch("loginOk");
+        setTimeout(()=>{
+          this.closeModal();
+        },1500)      
       }
     },
     usePwdLogin() {

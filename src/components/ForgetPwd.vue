@@ -1,6 +1,7 @@
 <template>
   <!-- 忘记密码弹窗 -->
-    <div class="forgetModal" v-show="forgetModal">
+    <transition  enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+    <div class="forgetModal animated" v-show="forgetModal">
       <span class="close qqzb_icon-guanbi" @click="closeModal"></span>
       <div class="title cl">
           <span class="fl"></span>
@@ -14,10 +15,10 @@
           <input v-show="!djs" type="button" @click="getYzm(phoneNum)" value="获取验证码" class="getYzm fr">
           <span v-show="djs" class="djs fr">还剩<span class="time">{{time}}</span>秒</span>
         </div>
-        
         <p class="step" @click="next">下一步</p>
       </div>
     </div>
+     </transition>
 </template>
 
 <script>

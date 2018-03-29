@@ -1,6 +1,7 @@
 <template>
   <!-- 在线注册弹窗 -->
-    <div class="registerModal" v-show="registerModal">
+    <transition  enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+    <div class="registerModal animated" v-show="registerModal">
       <span class="close qqzb_icon-guanbi" @click="closeModal"></span>
       <div class="title cl">
           <span class="fl"></span>
@@ -17,6 +18,7 @@
         <p class="register" @click="register">注册</p>
       </div>
     </div>
+    </transition>
 </template>
 
 <script>
