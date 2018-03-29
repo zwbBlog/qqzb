@@ -73,7 +73,7 @@ export default {
     ...mapState(["noLogin"])
   },
   methods: {
-    ...mapActions(["login"]),
+    ...mapActions(["login",'logout']),
     played() {
       console.log("play callback");
     },
@@ -91,11 +91,10 @@ export default {
     },
     logout(){
       MessageBox.confirm('确定要退出登录吗？', '提示').then(action =>{
-        Toast("已退出！");
-        this.$store.dispatch('noLogin');
+        this.$store.dispatch('logout');
         console.log(action)
-      }).catch(err=>{
-        console.log(err)
+      }).catch(cancel=>{
+        console.log(cancel)
       });
     }
   },

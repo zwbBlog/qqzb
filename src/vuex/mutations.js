@@ -22,7 +22,7 @@ const mutations = {
   loginOk(state){
     state.noLogin = state.noLogin;
   },
-  noLogin(state){
+  logout(state){
     state.noLogin = state.noLogin;
   }
 };

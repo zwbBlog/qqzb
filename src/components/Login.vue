@@ -1,6 +1,6 @@
 <template>
     <!-- 登录弹窗 -->
-     <transition  enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+    <transition  enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
     <div class="loginModal animated" v-show="loginModal">
         <span class="close qqzb_icon-guanbi" @click="closeModal"></span>
         <ul class="modal_list cl">
@@ -9,7 +9,7 @@
         </ul>
         <div class="modal_content">
             <div class="phone_login" v-show="phoneLogin">
-                <mt-field  placeholder="请输入手机号" v-model="phoneNum"></mt-field>
+                <mt-field type="tel"  placeholder="请输入手机号" v-model="phoneNum"></mt-field>
                 <mt-field  placeholder="请输入验证码" v-model="yzm">
                   <span class="getYzm" v-show="!djs" @click.stop="getYzm(phoneNum)">获取验证码</span>
                   <span class="djs" v-show="djs">倒计时<span class="time">{{time}}</span>秒</span>
@@ -18,8 +18,8 @@
                 <p class="register" @click="register">立即注册</p>
             </div>
             <div class="pwd_login" v-show="!phoneLogin">
-                <mt-field  placeholder="请输入手机号" v-model="phoneNum"></mt-field>
-                <mt-field  placeholder="请输入密码" v-model="pwd"></mt-field>
+                <mt-field type="tel"  placeholder="请输入手机号" v-model="phoneNum"></mt-field>
+                <mt-field  placeholder="请输入密码" type="password" v-model="pwd"></mt-field>
                 <div class="rightLogin" @click="usePwdLogin">立即登录</div>
                 <p class="cl pwdBot">
                   <span class="fl" @click="forgetPwd">忘记密码</span>

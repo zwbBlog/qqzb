@@ -11,7 +11,7 @@
       <div class="modal_content">
         <input type="number" placeholder="请输入手机号码" v-model="phoneNum">
         <div class="yzm cl">
-          <input type="text" placeholder="请输入验证码"  class="inYzm fl" v-model="code">
+          <input type="text" placeholder="请输入验证码" maxlength="10"  class="inYzm fl" v-model="code">
           <input v-show="!djs" type="button" @click="getYzm(phoneNum)" value="获取验证码" class="getYzm fr">
           <span v-show="djs" class="djs fr">还剩<span class="time">{{time}}</span>秒</span>
         </div>

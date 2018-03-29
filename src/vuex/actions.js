@@ -1,5 +1,7 @@
-import { Toast } from 'mint-ui';
-var timer=null;
+import {
+  Toast
+} from 'mint-ui';
+var timer = null;
 const actions = {
   //进入login弹窗
   login: ({
@@ -43,7 +45,7 @@ const actions = {
     state.forgetModal = true
     commit('forgetPwd')
   },
-   //进入设置密码弹窗
+  //进入设置密码弹窗
   setPwd: ({
     commit,
     state
@@ -55,10 +57,13 @@ const actions = {
     commit('setPwd')
   },
   //获取验证码
-  getYzm:({commit,state},opt) =>{
-    var reg=/^[1][3,4,5,7,8][0-9]{9}$/gi
+  getYzm: ({
+    commit,
+    state
+  }, opt) => {
+    var reg = /^[1][3,4,5,7,8][0-9]{9}$/gi
     console.log(opt);
-    if(!reg.test(opt)){
+    if (!reg.test(opt)) {
       Toast('手机号非法，请重试！');
       return false;
     }
@@ -82,13 +87,13 @@ const actions = {
     Toast("恭喜您登录成功！");
   },
   //退出登录
-  noLogin: ({
+  logout: ({
     commit,
     state
   }, opt) => {
     state.noLogin = true;
-    commit('noLogin');
-    Toast("已退出！");
+    commit('logout');
+    Toast("已退出登录！");
   }
 };
 
