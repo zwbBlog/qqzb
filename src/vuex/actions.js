@@ -81,6 +81,15 @@ const actions = {
     commit('loginOk');
     Toast("恭喜您登录成功！");
   },
+  //退出登录
+  noLogin: ({
+    commit,
+    state
+  }, opt) => {
+    state.noLogin = true;
+    commit('noLogin');
+    Toast("已退出！");
+  }
 };
 
 

@@ -166,7 +166,7 @@ const httpServer = (opts, data) => {
     'srAppid':"" ,
     'token': localStorage.getItem('token')?localStorage.getItem('token'):""
   }
-  const baseURL = 'for'; //请求前缀
+  const baseURL = 'api'; //请求前缀
 
   let httpDefaultOpts = { //http默认配置 
     method: opts.method,

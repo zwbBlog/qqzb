@@ -58,6 +58,15 @@ export default {
       this.phoneLogin = false;
     },
     usePhoneLogin() {
+      this.$ajax({
+        url:'www.baidu.com',
+        method:'get'
+        },{
+          data:{a:1}
+        }
+      ).then(()=>{
+          console.log(1)
+      });
       if (false) {
         //未成功登录
         Toast("验证码错误，请重新输入！");
@@ -66,7 +75,7 @@ export default {
         this.$store.dispatch("loginOk");
         setTimeout(()=>{
           this.closeModal();
-        },1500)      
+        },500)      
       }
     },
     usePwdLogin() {

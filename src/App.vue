@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="footer" v-show="!noLogin">
-          <p><img src="./assets/imgs/null.jpg" alt="" class="userImg"><span class="userName">牛市大boss</span></p>
+          <p><img src="./assets/imgs/null.jpg" alt="" class="userImg" @click="logout"><span class="userName">牛市大boss</span></p>
       </div>
     </div>
 
@@ -43,6 +43,8 @@
 </template>
 
 <script>
+import { MessageBox  } from "mint-ui";
+import { Toast } from "mint-ui";
 import { mapState, mapActions, mapMutations, mapGetters } from "vuex";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -86,6 +88,15 @@ export default {
     replay() {
       const player = this.$refs.player.instance;
       player && player.replay();
+    },
+    logout(){
+      MessageBox.confirm('确定要退出登录吗？', '提示').then(action =>{
+        Toast("已退出！");
+        this.$store.dispatch('noLogin');
+        console.log(action)
+      }).catch(err=>{
+        console.log(err)
+      });
     }
   },
   components: {
