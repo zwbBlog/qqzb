@@ -5,7 +5,7 @@
         <!-- <span class="qqzb_icon-guanbi guanbi" style="font-size:26px"></span> -->
     </div>
     <div id="video_content">
-        <ali-player @play="played" :source="aplayer.source" :vid="aplayer.vid" :playauth="aplayer.playauth" ref="player" :height="aplayer.height"></ali-player>
+        <ali-player @play="played" :source="aplayer.source" :vid="aplayer.vid" :playauth="aplayer.playauth" ref="player" ></ali-player>
         <p class="renshu">
           <span class="qqzb_icon-renshu"></span>
           <span class="subTitle">{{renshu}}人在看</span>
@@ -58,9 +58,9 @@ export default {
   data() {
     return {
       renshu: 0,
+      //横屏模式(默认false)
       vmode: false,
       aplayer: {
-        height:"100%",
         source: "../static/media/80test.mp4",
         vid: "8db6e5c7ff5f4257b41e2487ec61d592",
         playauth:

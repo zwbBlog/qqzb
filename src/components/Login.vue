@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import api from '../http/api';
 import { mapState, mapActions, mapMutations, mapGetters } from "vuex";
 import { Toast } from "mint-ui";
 export default {
@@ -59,10 +60,10 @@ export default {
     },
     usePhoneLogin() {
       this.$ajax({
-        url:'www.baidu.com',
+        url:api.getMemberVideoList,
         method:'get'
         },{
-          data:{a:1}
+          a:1
         }
       ).then(()=>{
           console.log(1)

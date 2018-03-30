@@ -24,6 +24,7 @@ import './assets/js/rem'
 import './assets/qqzb_font/iconfont.css'
 import './assets/css/animate.min.css'
 
+
 Vue.config.productionTip = false;
 
 

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
+
 // const $ajax = axios.create({
 //   timeout: 10000
 // })
