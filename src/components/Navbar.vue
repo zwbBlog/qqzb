@@ -31,6 +31,7 @@
                     <div class="fl pro_content">
                       <p class="pro_title">{{v.title}}</p>
                       <p class="pro_detail">{{v.detail}}</p>
+                      <!-- <lineClamp class="pro_detail" :lines="2">{{v.detail}}</lineClamp> -->
                       <p class="pro_group">
                         <span>查看详情</span>
                         <span>立即订购</span>     
@@ -39,13 +40,16 @@
                 </div>
             </mt-tab-container-item>
             <mt-tab-container-item id="3">
-              <div class="about"></div>
+              <div class="about">
+                 <img src="../assets/imgs/about.jpg" alt="">
+              </div>
             </mt-tab-container-item>
         </mt-tab-container>
     </div>
 </template>
 
 <script>
+import lineClamp from '../components/line-clamp.vue'
 export default {
   data() {
     return {
@@ -99,6 +103,9 @@ export default {
     setInterval(() => {
       //this.selected=this.selected*1<3?String(Number(this.selected)+1):'1'
     }, 1000);
+  },
+  components: {
+    lineClamp
   }
 };
 </script>
@@ -159,16 +166,15 @@ export default {
 
 .navBar_content .fore_content .fore_title {
   color: #000;
-  font-size: 0.3rem;
+  font-size: 0.32rem;
 }
 .navBar_content .fore_content .fore_title > span {
   font-size: 0.4rem;
   vertical-align: middle;
 }
-
 .fore_time,
 .fore_teacher {
-  margin-left: 0.3rem;
+  margin-left: 0.45rem;
 }
 .line {
   margin-top: 0.3rem;
@@ -214,8 +220,9 @@ export default {
   text-overflow: ellipsis;
   display: -webkit-box; 
   -webkit-box-orient: vertical; 
-  -webkit-line-clamp: 2; 
-  overflow: hidden; 
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  height: 0.75rem; 
 }
 .pro_content .pro_group{
   margin-top: 0.2rem;
@@ -231,10 +238,8 @@ export default {
 .mint-tab-container-item:last-child{
   padding-left: 0;
 }
-.mint-tab-container-item .about{
+.mint-tab-container-item .about,.mint-tab-container-item .about img{
   height: 4.3rem;
   width: 100%;
-  background: url('../assets/imgs/about.jpg') no-repeat center center;
-  background-size: cover;
 }
 </style>

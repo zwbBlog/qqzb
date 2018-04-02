@@ -195,9 +195,11 @@ body,
 }
 #video_content .renshu {
   position: absolute;
-  bottom: 0.25rem;
   font-size: 0.36rem;
-  left: 0.5rem;
+  /* bottom: 0.25rem;
+  left: 0.5rem; */
+  right:0.15rem;
+  top: 0.25rem;
 }
 #video_content .subTitle {
   font-size: 0.24rem;
