@@ -75,7 +75,7 @@ export default {
         Toast("验证码错误，请重新输入！");
       } else {
         //登录成功
-        sessionStorage.setItem('noLogin',0);
+        localStorage.setItem('noLogin',0);
         this.$store.dispatch("loginOk");
         setTimeout(()=>{
           this.closeModal();
