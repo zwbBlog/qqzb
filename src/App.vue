@@ -369,5 +369,11 @@ body,
   background-size: cover;
 }
 
+.navBar_content .mint-tab-container-item .about{
+  height: 4.3rem ;
+  width: 100%;
+  background: url("./assets/imgs/about.jpg") no-repeat center center;
+  background-size: cover
+}
 
 </style>

@@ -41,7 +41,7 @@
             </mt-tab-container-item>
             <mt-tab-container-item id="3">
               <div class="about">
-                 <img src="../assets/imgs/about.jpg" alt="">
+                 <!-- <img src="../assets/imgs/about.jpg" alt=""> -->
               </div>
             </mt-tab-container-item>
         </mt-tab-container>
@@ -238,8 +238,5 @@ export default {
 .mint-tab-container-item:last-child{
   padding-left: 0;
 }
-.mint-tab-container-item .about,.mint-tab-container-item .about img{
-  height: 4.3rem;
-  width: 100%;
-}
+
 </style>
