@@ -5,11 +5,13 @@
         <!-- <span class="qqzb_icon-guanbi guanbi" style="font-size:26px"></span> -->
     </div>
     <div id="video_content">
-        <ali-player @play="played" :source="aplayer.source" :vid="aplayer.vid" :playauth="aplayer.playauth" ref="player" ></ali-player>
+        <ali-player @play="played" :isLive="true" :source="aplayer.source" :vid="aplayer.vid" :playauth="aplayer.playauth" ref="player" ></ali-player>
         <p class="renshu">
           <span class="qqzb_icon-renshu"></span>
           <span class="subTitle">{{renshu}}人在看</span>
         </p>
+        <p class="tip" v-show="noLive">直播未开始</p>
+        <span class="qqzb_icon-shuaxin shuaxin" v-show="shuaxin"></span>
     </div>
     <div id="broadcast" v-show="!vmode">
         <p>
@@ -60,6 +62,8 @@ export default {
       renshu: 0,
       //横屏模式(默认false)
       vmode: false,
+      noLive:false,
+      shuaxin:false,
       aplayer: {
         source: "../static/media/80test.mp4",
         vid: "8db6e5c7ff5f4257b41e2487ec61d592",
@@ -70,7 +74,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["noLogin"])
+    ...mapGetters(["noLogin"])
   },
   methods: {
     ...mapActions(["login",'logout']),
@@ -91,6 +95,7 @@ export default {
     },
     logout(){
       MessageBox.confirm('确定要退出登录吗？', '提示').then(action =>{
+        sessionStorage.setItem('noLogin',1);
         this.$store.dispatch('logout');
         console.log(action)
       }).catch(cancel=>{
@@ -111,7 +116,7 @@ export default {
     var self=this;
     (function() {
       var updateOrientation = function() {
-        var orientation = window.innerWidth > window.innerHeight ? "landscape" : "portrait";
+        var orientation = window.screen.width > window.screen.height ? "landscape" : "portrait";
         // document.body.parentNode.setAttribute('class', orientation);
         console.log(orientation);
         if (orientation == "portrait") {
@@ -122,6 +127,7 @@ export default {
         } else {
           //横屏
           console.log('横屏');
+          self.$store.dispatch('closeModal');
           self.vmode=true;
           document.getElementById('video_content').style.height="100%";
         }
@@ -138,7 +144,7 @@ export default {
 </script>
 
 <style>
-@import url("./assets/css/reset.css");
+@import url("./assets/css/reset_mobile.css");
 html,
 body,
 #app {
@@ -155,6 +161,30 @@ body,
   position: relative;
   background-color: rgba(175, 175, 175, 0.8);
   color: #fff;
+}
+#video_content .tip{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5rem;
+  height: 0.36rem;
+  margin-left: -2.5rem;
+  margin-top: -0.18rem;
+  line-height: 0.36rem;
+  text-align: center;
+  font-size: 0.36rem;
+}
+#video_content .shuaxin{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin-left: -1rem;
+  margin-top: -1rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1rem;
 }
 #video_content .renshu {
   position: absolute;
@@ -280,6 +310,7 @@ body,
   vertical-align: middle;
   border-left: 1px solid #ccc;
   padding-left: 0.3rem;
+  font-size: 0.24rem;
 }
 .time {
   color: red;
@@ -328,4 +359,6 @@ body,
   background: url("./assets/imgs/right.jpg") no-repeat 0 center;
   background-size: cover;
 }
+
+
 </style>

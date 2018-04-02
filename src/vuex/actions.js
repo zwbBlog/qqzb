@@ -1,6 +1,6 @@
-import {
-  Toast
-} from 'mint-ui';
+import _$ajax from '../http'
+import api from '../http/api';
+import { Toast} from 'mint-ui';
 var timer = null;
 const actions = {
   //进入login弹窗
@@ -63,6 +63,15 @@ const actions = {
   }, opt) => {
     var reg = /^[1][3,4,5,7,8][0-9]{9}$/gi
     console.log(opt);
+    _$ajax({
+      url:api.getTransferPositionsDetail,
+      method:'post'
+      },{
+        phoneNum:opt
+      }
+    ).then(res=>{
+        console.log(res)
+    });
     if (!reg.test(opt)) {
       Toast('手机号非法，请重试！');
       return false;

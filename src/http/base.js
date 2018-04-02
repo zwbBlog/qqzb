@@ -77,7 +77,7 @@ const WANUrl = {
     }
   }
   
-  export {
+  export  {
     WANUrl,
     LANUrl,
     testUrl,

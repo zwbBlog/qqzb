@@ -21,7 +21,10 @@ Vue.prototype.$ajax = $ajax
 
 import './assets/js/rem'
 
+//引入字体图标
 import './assets/qqzb_font/iconfont.css'
+
+//引入animate动画库
 import './assets/css/animate.min.css'
 
 

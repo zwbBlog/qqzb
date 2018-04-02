@@ -12,7 +12,7 @@ const state = {
     // 是否倒计时
     djs:false,
     // 未登录
-    noLogin:true
+    noLogin:sessionStorage.getItem('noLogin')?parseInt(sessionStorage.getItem('noLogin')):true
 };
 
 export default state;

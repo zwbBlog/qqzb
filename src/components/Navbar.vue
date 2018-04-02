@@ -10,7 +10,7 @@
         <mt-tab-container v-model="selected" class="navBar_content">
             <mt-tab-container-item id="1">
                 <mt-cell v-show="foreshow.length>0" v-for="n in foreshow" :title="'内容 ' + n"  :key="n"/>
-                <img v-show="!foreshow.length>0" src="../assets/imgs/null.jpg" alt="" style="padding-right:0.5rem;padding-top:0.5rem">    
+                <img v-show="!foreshow.length>0" src="../assets/imgs/null.jpg" alt="" class="null">    
             </mt-tab-container-item>
             <mt-tab-container-item id="2">
                 <mt-cell v-for="n in 20" :title="'测试 ' + n"  :key="n"/>
@@ -34,11 +34,20 @@ export default {
     selected(newV, oldV) {
       document.getElementById('navBar').scrollTo(0,0);
     }
+  },
+  mounted(){
+    setInterval(()=>{
+      //this.selected=this.selected*1<3?String(Number(this.selected)+1):'1'
+    },1000)
   }
 };
 </script>
 
 <style scoped>
+.navBar_content .null{
+  padding-right:0.5rem;
+  padding-top:0.3rem
+}
 .navBar_list {
   position: fixed;
   top: 7rem;

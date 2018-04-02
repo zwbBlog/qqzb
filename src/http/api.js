@@ -1,5 +1,5 @@
 // import {baseUrl,ossService,wechat,staticPath,openFire} from './base';
-import {WANUrl as url, other} from './base.js';
+import {testUrl as url, other} from './base.js';
 const {baseUrl, ossService, wechat, staticPath, openFire} = url;
 const api = {
   // eg

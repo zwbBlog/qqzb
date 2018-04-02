@@ -61,18 +61,21 @@ export default {
     usePhoneLogin() {
       this.$ajax({
         url:api.getMemberVideoList,
-        method:'get'
+        method:'get',
+        baseUrl:'api'
         },{
-          a:1
+          a:1,
+          baseUrl:'api'
         }
-      ).then(()=>{
-          console.log(1)
+      ).then(res=>{
+          console.log(res)
       });
       if (false) {
         //未成功登录
         Toast("验证码错误，请重新输入！");
       } else {
         //登录成功
+        sessionStorage.setItem('noLogin',0);
         this.$store.dispatch("loginOk");
         setTimeout(()=>{
           this.closeModal();
@@ -121,6 +124,7 @@ export default {
   text-align: center;
   line-height: 0.75rem;
   color: #fff;
+  /* background:linear-gradient(left,rgb(255, 157, 19),transparent); */
   background-color: rgb(255, 157, 19);
   font-size: 0.3rem;
   margin-top: 0.15rem;
