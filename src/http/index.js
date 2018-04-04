@@ -164,10 +164,9 @@ axios.interceptors.response.use(response => {
 
 const httpServer = (opts, data) => {
   let Public = { //公共参数  
-    'srAppid':"" ,
     'token': localStorage.getItem('token')?localStorage.getItem('token'):""
   }
-  const baseURL = 'api'; //请求前缀
+  const baseURL = '/api'; //请求前缀
 
   let httpDefaultOpts = { //http默认配置 
     method: opts.method,

@@ -15,7 +15,7 @@
     </div>
     <div id="broadcast" v-show="!vmode">
         <p>
-          【公告】testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+          【公告】测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
         </p>
     </div>
     <div id="navBar" v-show="!vmode">
@@ -95,8 +95,8 @@ export default {
     },
     logout(){
       MessageBox.confirm('确定要退出登录吗？', '提示').then(action =>{
-        localStorage.setItem('noLogin',1);
         this.$store.dispatch('logout');
+        localStorage.setItem('noLogin',1);
       }).catch(cancel=>{
       });
     }
@@ -137,6 +137,7 @@ export default {
       };
       window.addEventListener("DOMContentLoaded", init, false);
     })();
+    console.log(sha1(123))
   }
 };
 </script>
@@ -205,17 +206,23 @@ body,
   font-size: 0.24rem;
 }
 #broadcast {
-  width: 100%;
+  /* width: 100%; */
   height: 0.7rem;
   line-height: 0.7rem;
   background-color: rgb(235, 237, 242);
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+#broadcast::-webkit-scrollbar {
+  display: none;
 }
 #broadcast > p {
-  width: 100%;
-  overflow: hidden;
+  /* width: 500%; */
+  /* overflow: hidden; */
+  /* overflow-x: scroll; */
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-size: 0.26rem
 }
 #navBar {
   /* height: 5.4rem; */

@@ -62,12 +62,12 @@ export default {
     },
     usePhoneLogin() {
       this.$ajax({
-        url:api.getMemberVideoList,
-        method:'get',
-        baseUrl:'api'
+        url:'/login',
+        method:'post',
         },{
-          a:1,
-          baseUrl:'api'
+          loginType:1,
+          mobile:'13726760000',
+          pass:'123456'
         }
       ).then(res=>{
           console.log(res)
@@ -77,8 +77,8 @@ export default {
         Toast("验证码错误，请重新输入！");
       } else {
         //登录成功
-        localStorage.setItem('noLogin',0);
-        this.$store.dispatch("loginOk");
+        // localStorage.setItem('noLogin',0);
+        // this.$store.dispatch("loginOk");
         setTimeout(()=>{
           this.closeModal();
         },500)      

@@ -21,6 +21,8 @@ Vue.prototype.$ajax = $ajax
 
 import './assets/js/rem'
 
+import './assets/js/sha1.min'
+
 //引入字体图标
 import './assets/qqzb_font/iconfont.css'
 
