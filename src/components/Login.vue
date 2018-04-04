@@ -52,10 +52,12 @@ export default {
     // ...mapMutations(['getYzm']),
     usePhone() {
       this.phoneNum = "";
+      this.pwd="";
       this.phoneLogin = true;
     },
     usePwd() {
       this.phoneNum = "";
+      this.yzm = "";
       this.phoneLogin = false;
     },
     usePhoneLogin() {

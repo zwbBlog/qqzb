@@ -9,11 +9,11 @@
           <span class="fr"></span>
       </div>
       <div class="modal_content">
-        <input type="number" placeholder="请输入手机号码">
+        <input type="number" placeholder="请输入手机号码" maxlength="11">
         <input type="text" placeholder="请输入验证码"  class="inYzm fl">
         <input v-show="!djs" type="button" value="获取验证码" class="getYzm fr" @click="getYzm">
         <span v-show="djs" class="djs">还剩<span class="time">{{time}}</span>秒</span>
-        <input type="password" maxlength="30" placeholder="请输入密码" v-model="pwd" ref="pwd">
+        <input type="password" minlength="6" maxlength="14" placeholder="请输入密码" v-model="pwd" ref="pwd">
         <span class="eyes qqzb_icon-yanjing1" ref="eyes" @click="toggle"></span>
         <p class="register" @click="register">注册</p>
       </div>
